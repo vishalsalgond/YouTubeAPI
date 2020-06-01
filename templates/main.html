@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://kidsbusiness.com.au/wp-content/uploads/2019/03/youtube-logo-png-photo-0-300x300.png" type="image/icon type">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>{{ data['playlistInfo']['items'][0]['snippet']['channelTitle'] }}</title>
+</head>
+<body>
+    
+    <div class="p-3 mb-2 bg-danger text-white">
+        <div class="row">
+            <div class="col" align="center">
+                <img class="rounded-circle p-2" src="{{ data['channelInfo']['items'][0]['snippet']['thumbnails']['medium']['url'] }}" alt="">
+                <h1 class="mt-1 p-2">{{ data['playlistInfo']['items'][0]['snippet']['channelTitle'] }}</h1>
+                <p class="p-2">Joined on {{ data['channelInfo']['items'][0]['snippet']['publishedAt'][:10] }}</p>
+                <a class="btn btn-primary btn-lg mb-4" href="{{ data['search'] }}">View Channel</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col" align="center">
+            <div class="card bg-dark mt-4 mb-4" style="width: 18rem;">
+                <div class="card-body">
+                    <h1 class="text-light">{{ data['statistics']['items'][0]['statistics']['videoCount'] }}</h1>
+                    <h4 class="card-title text-primary">Videos</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col" align="center">
+            <div class="card bg-dark mt-4 mb-4" style="width: 18rem;">
+                <div class="card-body">
+                    <h1 class="text-light">{{ data['statistics']['items'][0]['statistics']['subscriberCount'] }}</h1>
+                    <h4 class="card-title text-primary">Subscribers</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col" align="center">
+            <div class="card bg-dark mt-4 mb-4" style="width: 18rem;">
+                <div class="card-body">
+                    <h1 class="text-light">{{ data['statistics']['items'][0]['statistics']['viewCount'] }}</h1>
+                    <h4 class="card-title text-primary">Total Views</h4>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    
+    <div class="jumbotron jumbotron-fluid mt-3 mb-3">
+        <div class="container">
+            <h2 class="p-2">About the channel</h2>
+            <p class="p-1">{{ data['channelInfo']['items'][0]['snippet']['description'] }}</p>
+        </div>     
+    </div>
+
+    <div class="container mb-4">
+        <div class="row mt-4">
+          <div class="col">
+            <h1 class="mt-2 mb-4">Playlists</h1> 
+            {% for element in data['playlistInfo']['items']  %}
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <h3> {{ element['snippet']['localized']['title'] }} </h3>
+                <p> Published at : {{ element['snippet']['publishedAt'][:10] }} </p>
+                <small>  {{ element['snippet']['localized']['description'] }} </small>
+                <div class=" col-3">
+                    <img src="{{ element['snippet']['thumbnails']['medium']['url'] }}" class="img-fluid" alt="quixote">
+                </div>
+              </li>
+            </ul>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+</body>
+</html>
