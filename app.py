@@ -7,7 +7,6 @@ app = Flask(__name__)
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if (request.method == 'POST'):
-        api_key = 'AIzaSyA8hURwcnKk-2jGHgKuGshvJwfUgajyMT4'
         youtube = build('youtube', 'v3', developerKey = api_key)
         data = dict()
         
