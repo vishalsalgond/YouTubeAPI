@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from googleapiclient.discovery import build
+import os
 import json
 
 app = Flask(__name__)
@@ -7,8 +8,7 @@ app = Flask(__name__)
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if (request.method == 'POST'):
-        api_key = 'AIzaSyA8hURwcnKk-2jGHgKuGshvJwfUgajyMT4'
-        youtube = build('youtube', 'v3', developerKey = api_key)
+        youtube = build('youtube', 'v3', developerKey = os.environ.get('YT'))
         data = dict()
         
         def get_channel_details(url):
