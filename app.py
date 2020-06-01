@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 from googleapiclient.discovery import build
 import os
 import json
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = 'AIzaSyA8hURwcnKk-2jGHgKuGshvJwfUgajyMT4'
 
 app = Flask(__name__)
 
