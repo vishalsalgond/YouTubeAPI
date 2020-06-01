@@ -2,13 +2,14 @@ from flask import Flask, render_template, request
 from googleapiclient.discovery import build
 import os
 import json
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = 'AIzaSyA8hURwcnKk-2jGHgKuGshvJwfUgajyMT4'
 
 app = Flask(__name__)
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if (request.method == 'POST'):
-        youtube = build('youtube', 'v3', developerKey = os.environ.get('YT'))
+        youtube = build('youtube', 'v3', developerKey = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS'))
         data = dict()
         
         def get_channel_details(url):
