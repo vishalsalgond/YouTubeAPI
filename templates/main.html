@@ -21,7 +21,7 @@
     </div>
 
     <div class="row mt-4">
-        <div class="col" align="center">
+        <div class="col-sm" align="center">
             <div class="card bg-dark mt-4 mb-4" style="width: 18rem;">
                 <div class="card-body">
                     <h1 class="counter text-light" data-target="{{ data['statistics']['items'][0]['statistics']['videoCount'] }}">
@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <div class="col ml-4 mr-4" align="center">
+        <div class="col-sm ml-4 mr-4" align="center">
             <div class="card bg-dark mt-4 mb-4" style="width: 18rem;">
                 <div class="card-body">
                     <h1 class="counter text-light" data-target="{{ data['statistics']['items'][0]['statistics']['subscriberCount'] }}">
@@ -39,7 +39,7 @@
                 </div>
             </div>
         </div>
-        <div class="col" align="center">
+        <div class="col-sm" align="center">
             <div class="card bg-dark mt-4 mb-4" style="width: 18rem;">
                 <div class="card-body">
                     <h1 class="counter text-light" data-target="{{ data['statistics']['items'][0]['statistics']['viewCount'] }}">
@@ -68,9 +68,8 @@
                 <h3> {{ element['snippet']['localized']['title'] }} </h3>
                 <small> Published at : {{ element['snippet']['publishedAt'][:10] }} </small>
                 <p class="mt-2">  {{ element['snippet']['localized']['description'] }} </p>
-
                 </div>
-                <div class=" col-3">
+                <div class=" col-4">
                     <img src="{{ element['snippet']['thumbnails']['medium']['url'] }}" class="img-fluid" alt="quixote">
                 </div>
               </li>
