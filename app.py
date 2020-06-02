@@ -4,12 +4,11 @@ import os
 import json
 
 app = Flask(__name__)
-app.config["YT_API"] = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if (request.method == 'POST'):
-        youtube = build('youtube', 'v3', developerKey = app.config["YT_API"] )
+        youtube = build('youtube', 'v3', developerKey = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS') )
         data = dict()
         
         def get_channel_details(url):
@@ -46,7 +45,7 @@ def index():
         req = youtube.playlists().list(
                 part = 'snippet',
                 channelId = cid,
-                maxResults = 20
+                maxResults = 25
                 )
 
         data.update({'playlistInfo': req.execute()})

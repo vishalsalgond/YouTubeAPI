@@ -1,5 +1,5 @@
 const counters = document.querySelectorAll('.counter');
-const speed = 200;
+const speed = 50;
 
 counters.forEach(counter => {
   const updateCount = () => {
@@ -12,7 +12,7 @@ counters.forEach(counter => {
       setTimeout(updateCount, 1);
     }
     else {
-      counter.innerText = target;
+      counter.innerText = target.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
   };
   updateCount();
