@@ -14,7 +14,7 @@
             <div class="col" align="center">
                 <img class="rounded-circle p-2" src="{{ data['channelInfo']['items'][0]['snippet']['thumbnails']['medium']['url'] }}" alt="">
                 <h1 class="mt-1 p-2">{{ data['playlistInfo']['items'][0]['snippet']['channelTitle'] }}</h1>
-                <p class="p-2">Joined on {{ data['channelInfo']['items'][0]['snippet']['publishedAt'][:10] }}</p>
+                <p class="p-2">Joined {{ data['channelInfo']['items'][0]['snippet']['publishedAt'][:10] }}</p>
                 <a class="btn btn-primary btn-lg mb-4" href="{{ data['search'] }}">View Channel</a>
             </div>
         </div>
@@ -65,10 +65,13 @@
             <h1 class="mt-2 mb-4">Playlists</h1>
             {% for element in data['playlistInfo']['items']  %}
             <ul class="list-group">
-              <li class="list-group-item d-flex justify-content-between align-items-center">
+              <li class="list-group-item d-flex justify-content-between">
+                <div class="col">
                 <h3> {{ element['snippet']['localized']['title'] }} </h3>
-                <p> Published at : {{ element['snippet']['publishedAt'][:10] }} </p>
-                <small>  {{ element['snippet']['localized']['description'] }} </small>
+                <small> Published at : {{ element['snippet']['publishedAt'][:10] }} </small>
+                <p class="mt-2">  {{ element['snippet']['localized']['description'] }} </p>
+
+                </div>
                 <div class=" col-3">
                     <img src="{{ element['snippet']['thumbnails']['medium']['url'] }}" class="img-fluid" alt="quixote">
                 </div>

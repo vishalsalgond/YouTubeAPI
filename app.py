@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if (request.method == 'POST'):
-        youtube = build('youtube', 'v3', developerKey = os.environ.get('YT'))
+        youtube = build('youtube', 'v3', developerKey = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS'))
         data = dict()
         
         def get_channel_details(url):
