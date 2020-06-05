@@ -11,4 +11,4 @@ This is a simple flask website which uses "YouTube Data API v3" to fetch informa
 
 Currently the website shows data like subscribers, number of videos, total videos, description of channel and information of playlists of that channel.
 
-We are trying to add beautiful dashboards so that the website looks more alive and interactive.
+We'll be adding beautiful dashboards to the website so that it looks more alive and interactive.
